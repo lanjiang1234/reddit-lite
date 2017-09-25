@@ -1,0 +1,38 @@
+{{set . "title" "Create New Post"}}
+{{template "header.html" .}}
+
+<h1>Create New Post:</h1>
+
+{{if .errors}}
+<div class="error">
+    <ul>
+    {{range .errors}}
+        <li> {{.Message}}</li>
+    {{end}}
+    </ul>
+</div>
+{{end}}
+
+<form action="{{url "Posts.SavePost"}}" method="POST">
+  {{with $field := field "post.Title" .}}
+    <p class="{{$field.ErrorClass}}">
+      <strong>Title:</strong>
+      <input type="text" name="{{$field.Name}}" size="16" value="{{$field.Flash}}"> *
+      <span class="error">{{$field.Error}}</span>
+    </p>
+  {{end}}
+  {{with $field := field "post.Content" .}}
+    <p class="{{$field.ErrorClass}}">
+      <strong>Content:</strong> 
+      <input type="text" name="{{$field.Name}}" size="16" value="{{$field.Flash}}"> *
+      <span class="error">{{$field.Error}}</span>
+    </p>
+  {{end}}
+  <p class="buttons">
+    <input type="submit" value="Create"> 
+    <a href="{{url "App.Index"}}">Cancel</a>
+  </p>
+</form>
+
+{{template "footer.html" .}}
+

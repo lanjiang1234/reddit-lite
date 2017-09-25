@@ -1,0 +1,26 @@
+{{set . "title" "View Post"}}
+{{template "header.html" .}}
+
+{{with .post}}
+<div class="container">
+  <div class="row">
+    <div>
+      <span>{{.Title}}</span>
+    </div>
+    <div>
+      <span>{{.Content}}</span>
+    </div>
+    <div>
+      <span>upvote {{.UpVote}}</span>
+      <span>downvote{{.DownVote}}</span>
+      <span>Created On {{.CreatedOn}}</span>
+    </div>
+  </div>
+</div>
+{{end}}
+
+<div class="buttons">
+  <a href="{{url "App.Index"}}">Back</a>
+</div>
+
+{{template "footer.html" .}}

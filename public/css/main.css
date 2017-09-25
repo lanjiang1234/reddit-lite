@@ -1,0 +1,4 @@
+.upvote, .downvote {
+    background: blue;
+    cursor: pointer;
+}
