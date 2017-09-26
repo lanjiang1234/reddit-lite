@@ -1,30 +1,32 @@
-# Welcome to Revel
+# Welcome to Reddit Lite
 
-A high-productivity web framework for the [Go language](http://www.golang.org/).
-
+This is a demo website created using Go and Revel framework for learning purpose.
+For frontend, bootstrap 3 and jQuery 2.2 are used.
 
 ### Start the web server:
 
-   revel run myapp
+   revel run github.com/lanjiang/reddit-lite
 
-### Go to http://localhost:9000/ and you'll see:
+### Deployment
 
-    "It works"
+Please go to https://reddit-lite-lanjiang.herokuapp.com/
 
 ## Code Layout
 
 The directory structure of a generated Revel application:
 
     conf/             Configuration directory
-        app.conf      Main app configuration file
-        routes        Routes definition file
+        app.conf      Main app configuration file [auto-generated]
+        routes        Routes definition file [auto-generated]
 
     app/              App sources
-        init.go       Interceptor registration
+        init.go       Interceptor registration [auto-generated]
         controllers/  App controllers go here
+        models/       Models directory
         views/        Templates directory
-
-    messages/         Message files
+        services/     Services directory
+        routes        Route tables [auto-generated]
+        tmp           tmp files [auto-generated]
 
     public/           Public static assets
         css/          CSS files
@@ -34,10 +36,6 @@ The directory structure of a generated Revel application:
     tests/            Test suites
 
 
-## Help
+## Revel framework
 
-* The [Getting Started with Revel](http://revel.github.io/tutorial/gettingstarted.html).
-* The [Revel guides](http://revel.github.io/manual/index.html).
-* The [Revel sample apps](http://revel.github.io/examples/index.html).
-* The [API documentation](https://godoc.org/github.com/revel/revel).
-
+* The [Getting Started with Revel](http://revel.github.io/tutorial/gettingstarted.html).ß
