@@ -1,29 +1,23 @@
-{{set . "title" "Home"}}
+{{set . "title" "Post List"}}
 {{template "header.html" .}}
 
-<header class="jumbotron" style="background-color:#A9F16C">
-  <div class="container">
-    <div class="row">
-      <p class="buttons">
-        <a href="{{url "Posts.New"}}">Create New Post</a>
-      </p>
-      <h1>Post list</h1>
-      {{if .posts}}
-      <div>
-        {{range .posts}}
-        <div>
-          <a href="{{url "Posts.View" .PostId}}">{{.Title}}</a>
-          <div style="float: right">
-            <span class="upvote" data-id="{{.PostId}}">upvote</span>
-            <span class="downvote" data-id="{{.PostId}}">downvote</span>
-          </div>
-        </div>
-        {{end}}
-      </div>
+<div class="container">
+  <div class="row">
+    <a class="btn btn-primary btn-reddit" href="{{url "Posts.New"}}" style="float:right">
+      Create New Post
+    </a>
+    {{if .posts}}
+    <ol class="post-list" style="clear:both">
+      {{range .posts}}
+      <li class="post">
+        <a href="{{url "Posts.View" .PostId}}">{{.Title}}</a>
+        <span class="vote up-vote" data-id="{{.PostId}}">{{.UpVote}}</span>
+        <span class="vote down-vote" data-id="{{.PostId}}">{{.DownVote}}</span>
+      </li>
       {{end}}
-
-    </div>
+    </ol>
+    {{end}}
   </div>
-</header>
+</div>
 
 {{template "footer.html" .}}

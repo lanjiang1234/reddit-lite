@@ -1,4 +1,125 @@
-.upvote, .downvote {
-    background: blue;
+body {
+    background: #242729;
+    font-size: 13px; 
+    font-family: Verdana,sans-serif; 
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+li {
+    border-bottom:  1px #eee solid
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+}
+
+.site-logo {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin: 20px 0 10px 120px;
+}
+
+.site-description {
+    display: block;
+    font-size: 13px;
+    font-style: italic;
+    color: white;
+    margin: 10px 0 10px 120px;
+}
+
+.container {
+    min-height: 500px;
+    padding: 30px 50px;
+    background: #fff;
+}
+
+.post-list {
+    clear: both;
+    line-height: 36px;
+    font-size: 15px;
+}
+
+.vote {
+    display: inline-block;
+    width: 35px;
+    height: 25px;
+    padding-left: 23px;
     cursor: pointer;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 0 4px;
+    font-size: 13px;
+}
+
+.up-vote {
+    margin-left: 5px;
+    background-image: url(../img/upvote.png);
+}
+
+.down-vote {
+    background-position: 0 7px;
+    background-image: url(../img/downvote.png);
+}
+
+.btn-reddit a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.title {
+    line-height: 36px;
+    font-size: 20px;
+    border-bottom: 1px #888 solid;
+    margin-bottom: 5px;
+}
+
+.content {
+    margin: 30px 0;
+    font-size: 16px;
+}
+
+.create-btns {
+    margin-top: 30px;
+}
+
+.date-time {
+    font-size: 13px;
+    font-style: italic;
+    color: #888;
+}
+
+.new-post h1 {
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px #888 solid
+}
+
+.edit-field {
+    margin: 10px 0;
+}
+
+.field-name {
+    margin: 5px 0;
+}
+
+.field-name span {
+    font-size: 11px;
+    font-style: italic;
+    color: #666;
+}
+
+input[type="text"] {
+    width: 425px;
+}
+
+.footer {
+    width: 100%;
+    height: 100px;
 }

@@ -2,25 +2,20 @@
 {{template "header.html" .}}
 
 {{with .post}}
-<div class="container">
-  <div class="row">
-    <div>
-      <span>{{.Title}}</span>
-    </div>
-    <div>
-      <span>{{.Content}}</span>
-    </div>
-    <div>
-      <span>upvote {{.UpVote}}</span>
-      <span>downvote{{.DownVote}}</span>
-      <span>Created On {{.CreatedOn}}</span>
-    </div>
+<div class="container view-post">
+  <div class="title">
+    {{.Title}}
+    <span class="vote up-vote" data-id="{{.PostId}}">{{.UpVote}}</span>
+    <span class="vote down-vote" data-id="{{.PostId}}">{{.DownVote}}</span>
   </div>
+  <div class="date-time">
+    <span>{{.CreatedOn.Format "Jan 02, 2006 15:04:05 UTC"}}</span>
+  </div>
+  <div class="content">
+    <span>{{.Content}}</span>
+  </div>
+  <a class="btn btn-primary btn-reddit" href="{{url "Posts.List"}}">Back</a>
 </div>
 {{end}}
-
-<div class="buttons">
-  <a href="{{url "App.Index"}}">Back</a>
-</div>
 
 {{template "footer.html" .}}

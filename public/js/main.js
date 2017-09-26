@@ -1,20 +1,20 @@
 
 $(document).ready(function () {
-    $('.downvote').css('background', 'red');
 
-    $('.upvote').on('click', function() {
-        var id = $(this).data("id");
-        $.post( "/posts/vote", {id: id, voteType: 1} )
-            .done(function(data) {
-                $( ".result" ).html( data );
-            });
+    $('.up-vote').on('click', function() {
+        vote($(this), 1);
     });
 
-    $('.downvote').on('click', function() {
-        var id = $(this).data("id");
-        $.post( "/posts/vote", {id: id, voteType: 0} )
-            .done(function(data) {
-                $( ".result" ).html( data );
-            });
+    $('.down-vote').on('click', function() {
+        vote($(this), 0);
     });
+
+    function vote($elem, voteType) {
+        var id = $elem.data("id");
+        $.post( "/posts/vote", {id: id, voteType: voteType} )
+            .done(function(data) {
+                var prop = voteType == 0 ? "downvote" : "upvote";
+                $elem.text(data[prop]);
+            });
+    }
 })

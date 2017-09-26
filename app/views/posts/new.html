@@ -1,38 +1,30 @@
 {{set . "title" "Create New Post"}}
 {{template "header.html" .}}
 
-<h1>Create New Post:</h1>
+<div class="container new-post">
+  <h1>Create New Post:</h1>
 
-{{if .errors}}
-<div class="error">
-    <ul>
-    {{range .errors}}
-        <li> {{.Message}}</li>
+  <form action="{{url "Posts.Save"}}" method="POST">
+    {{with $field := field "post.Title" .}}
+      <div class="edit-field">
+        <div class="field-name">Post Title <span>(minimum 10 characters *)</span></div> 
+        <input type="text" name="{{$field.Name}}" value="{{$field.Flash}}">
+        <span class="error">{{$field.Error}}</span>
+      </div>
     {{end}}
-    </ul>
+    {{with $field := field "post.Content" .}}
+      <div class="edit-field">
+        <div class="field-name">Post Content <span>(minimum 20 characters *)</span></div>
+        <textarea type="text" name="{{$field.Name}}" rows="6" cols="50">{{$field.Flash}}</textarea>
+        <span class="error">{{$field.Error}}</span>
+      </div>
+    {{end}}
+    <div class="create-btns">
+      <input class="btn btn-primary btn-reddit" type="submit" value="Create"> 
+      <a class="btn btn-primary btn-reddit" href="{{url "App.Index"}}">Cancel</a>
+    </div>
+  </form>
 </div>
-{{end}}
-
-<form action="{{url "Posts.SavePost"}}" method="POST">
-  {{with $field := field "post.Title" .}}
-    <p class="{{$field.ErrorClass}}">
-      <strong>Title:</strong>
-      <input type="text" name="{{$field.Name}}" size="16" value="{{$field.Flash}}"> *
-      <span class="error">{{$field.Error}}</span>
-    </p>
-  {{end}}
-  {{with $field := field "post.Content" .}}
-    <p class="{{$field.ErrorClass}}">
-      <strong>Content:</strong> 
-      <input type="text" name="{{$field.Name}}" size="16" value="{{$field.Flash}}"> *
-      <span class="error">{{$field.Error}}</span>
-    </p>
-  {{end}}
-  <p class="buttons">
-    <input type="submit" value="Create"> 
-    <a href="{{url "App.Index"}}">Cancel</a>
-  </p>
-</form>
 
 {{template "footer.html" .}}
 

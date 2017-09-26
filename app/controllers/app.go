@@ -5,11 +5,12 @@ import (
 	"github.com/revel/revel"
 )
 
+//App controller
 type App struct {
 	*revel.Controller
 }
 
-//navigate to post list page
+//Index navigates to post listing page
 func (c App) Index() revel.Result {
 	return c.Redirect(routes.Posts.List())
 }
