@@ -42,10 +42,11 @@ li {
     background: #fff;
 }
 
-.post-list {
+.post-list li {
     clear: both;
-    line-height: 36px;
+    line-height: 25px;
     font-size: 15px;
+    margin: 8px 0;
 }
 
 .vote {
@@ -56,7 +57,6 @@ li {
     cursor: pointer;
     background-size: 25px;
     background-repeat: no-repeat;
-    background-position: 0 4px;
     font-size: 13px;
 }
 
@@ -66,7 +66,7 @@ li {
 }
 
 .down-vote {
-    background-position: 0 7px;
+    background-position: 0 2px;
     background-image: url(../img/downvote.png);
 }
 
@@ -76,7 +76,7 @@ li {
 }
 
 .title {
-    line-height: 36px;
+    line-height: 30px;
     font-size: 20px;
     border-bottom: 1px #888 solid;
     margin-bottom: 5px;

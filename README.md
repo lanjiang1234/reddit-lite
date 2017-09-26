@@ -9,7 +9,7 @@ For frontend, bootstrap 3 and jQuery 2.2 are used.
 
 ### Deployment
 
-Please go to lanjiang.org to view the demo
+Please go to http://13.228.105.37:9000/ to view the demo
 
 ## Code Layout
 
