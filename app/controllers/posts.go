@@ -35,7 +35,11 @@ func (c Posts) New() revel.Result {
 
 //Save new post
 func (c Posts) Save(post models.Post) revel.Result {
-	post.Validate(c.Validation)
+	c.Validation.Required(post.Title).Message("Please enter the title")
+	c.Validation.MinSize(post.Title, 10).Message("Title must be at most 10 characters long")
+	c.Validation.Required(post.Content).Message("Please enter the content")
+	c.Validation.MinSize(post.Content, 20).Message("Content must be at most 20 characters long")
+
 	if c.Validation.HasErrors() {
 		c.Validation.Keep()
 		c.FlashParams()

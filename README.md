@@ -9,7 +9,7 @@ For frontend, bootstrap 3 and jQuery 2.2 are used.
 
 ### Deployment
 
-Please go to https://reddit-lite-lanjiang.herokuapp.com/
+Please go to lanjiang.org to view the demo
 
 ## Code Layout
 

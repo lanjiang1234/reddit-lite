@@ -4,19 +4,27 @@
 <div class="container new-post">
   <h1>Create New Post:</h1>
 
+  {{if .errors}}
+  <div class="error">
+      {{range .errors}}
+          <span> {{.Message}}</span>
+      {{end}}
+  </div>
+  {{end}}
+
   <form action="{{url "Posts.Save"}}" method="POST">
     {{with $field := field "post.Title" .}}
       <div class="edit-field">
         <div class="field-name">Post Title <span>(minimum 10 characters *)</span></div> 
         <input type="text" name="{{$field.Name}}" value="{{$field.Flash}}">
-        <span class="error">{{$field.Error}}</span>
+        <span class="error"></span>
       </div>
     {{end}}
     {{with $field := field "post.Content" .}}
       <div class="edit-field">
         <div class="field-name">Post Content <span>(minimum 20 characters *)</span></div>
         <textarea type="text" name="{{$field.Name}}" rows="6" cols="50">{{$field.Flash}}</textarea>
-        <span class="error">{{$field.Error}}</span>
+        <span class="error"></span>
       </div>
     {{end}}
     <div class="create-btns">
